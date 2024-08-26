@@ -11,14 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => UserVM()..fetchUsers(),
-      child: MaterialApp(
-        title: 'GitHub Users',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: HomeView(),
-      ),
-    );
+        create: (_) => HomeVM()..fetchUsers(),
+        child: MaterialApp(
+          title: 'GitHub Users',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: HomeView(),
+        ));
   }
 }
