@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 class DetailView extends StatelessWidget {
   final String username;
 
-  DetailView({required this.username});
+  const DetailView({super.key, required this.username});
 
   @override
   Widget build(BuildContext context) {
