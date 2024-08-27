@@ -1,6 +1,7 @@
 import 'package:acote/Detail/DetailView.dart';
 import 'package:acote/Home/HomeVM.dart';
 import 'package:acote/Model/User.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -58,14 +59,19 @@ class _HomeView extends State<HomeView> {
                     return GestureDetector(
                       onTap: () =>
                           launchUrl(Uri.parse('https://taxrefundgo.kr')),
-                      child:
-                          Image.network('https://placehold.it/500x100?text=ad'),
+                      child: CachedNetworkImage(
+                          imageUrl: 'https://placehold.it/500x100?text=ad'),
                     );
                   } else {
                     int userIndex = index - index ~/ 11;
                     User user = provider.users[userIndex];
                     return ListTile(
-                        leading: Image.network(user.avatarUrl),
+                        leading: CachedNetworkImage(
+                          imageUrl: user.avatarUrl,
+                          width: 50.0,
+                          height: 50.0,
+                          fit: BoxFit.cover,
+                        ),
                         title: Text(user.login),
                         onTap: () {
                           Navigator.push(
