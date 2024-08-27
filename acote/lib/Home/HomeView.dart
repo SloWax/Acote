@@ -1,3 +1,4 @@
+import 'package:acote/Detail/DetailView.dart';
 import 'package:acote/Home/HomeVM.dart';
 import 'package:acote/Model/User.dart';
 import 'package:flutter/material.dart';
@@ -29,9 +30,8 @@ class _HomeView extends State<HomeView> {
   }
 
   void _onScroll() {
-    print('scroll');
     final isNext = _scrollController.position.pixels >
-        (_scrollController.position.maxScrollExtent - 200);
+        (_scrollController.position.maxScrollExtent - 300);
 
     if (isNext) {
       Provider.of<HomeVM>(context, listen: false).fetchUsers();
@@ -68,13 +68,13 @@ class _HomeView extends State<HomeView> {
                         leading: Image.network(user.avatarUrl),
                         title: Text(user.login),
                         onTap: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) =>
-                          //         DetailView(username: user.login),
-                          //   ),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  DetailView(username: user.login),
+                            ),
+                          );
                         });
                   }
                 },

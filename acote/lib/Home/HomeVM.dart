@@ -13,7 +13,7 @@ class HomeVM with ChangeNotifier {
   final GitService _apiService = GitService();
 
   Future<void> fetchUsers() async {
-    if (_isLoading) return; // 이미 로딩 중이면 중복 요청을 방지
+    if (_isLoading) return;
     _isLoading = true;
     notifyListeners();
 
@@ -21,7 +21,7 @@ class HomeVM with ChangeNotifier {
       List<User> fetchedUsers = await _apiService.fetchUsers(_since);
       _users.addAll(fetchedUsers);
       if (fetchedUsers.isNotEmpty) {
-        _since = _users.last.id; // 다음 페이지를 위한 값 설정
+        _since = _users.last.id;
       }
     } finally {
       _isLoading = false;
