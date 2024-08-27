@@ -32,5 +32,5 @@ git clone https://github.com/SloWax/Acote.git
 
 ### 상태 관리 방법 선택 이유
 Provider는 Flutter에서 가장 많이 사용되는 상태 관리 방법으로, 간단한 상태 관리 및 데이터 공유가 필요한 경우에 적합합니다.
-이 프로젝트에서는 HomeVM과 DetailVM을 사용하여 사용자 목록과 API 통신 상태를 관리했습니다.
+이 프로젝트에서는 HomeVM과 DetailVM을 사용하여 유저 목록과 Repository 목록, API 통신 상태를 관리했습니다.
 Bloc 패턴 고려 하였으나 이 프로젝트의 복잡도가 낮아 Provider로 충분히 상태 관리를 할 수 있다고 판단했습니다.
